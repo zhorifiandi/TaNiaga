@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cidoeq.taniaga.Login"
+    android:background="#9ed190">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/logo_login"
+        android:src="@drawable/logo_taniaga"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"/>
+    <LinearLayout
+        android:id="@+id/linear_email"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="52dp"
+        android:orientation="vertical"
+        android:layout_below="@+id/logo_login">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:text="Email"
+            android:textColor="@android:color/white"/>
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linear_password"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@+id/linear_email"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:text="Kata Sandi"
+            android:textColor="@android:color/white"/>
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linear_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/linear_password">
+        <TextView
+            android:id="@+id/text_to_register"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/to_register"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"/>
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="60dp"
+            android:text="@string/login"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:background="#f7ce5d"
+            android:layout_gravity="end"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

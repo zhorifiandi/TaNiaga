@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TaNiaga</string>
+    <string name="login">Masuk</string>
+    <string name="to_register">Buat akun baru. Klik di sini.</string>
+</resources>
