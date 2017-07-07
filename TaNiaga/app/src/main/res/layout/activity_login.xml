@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="cidoeq.taniaga.Login"
-    android:background="#9ed190">
+    android:background="#01a79d">
 
     <ImageView
         android:layout_width="match_parent"
@@ -13,7 +13,8 @@
         android:id="@+id/logo_login"
         android:src="@drawable/logo_taniaga"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"/>
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"/>
     <LinearLayout
         android:id="@+id/linear_email"
         android:layout_width="match_parent"
@@ -36,7 +37,9 @@
             android:layout_height="0dp"
             android:layout_weight="2"
             android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp" />
+            android:layout_marginRight="50dp"
+            android:hint="someone@example.com"
+            android:background="@android:color/white"/>
 
     </LinearLayout>
     <LinearLayout
@@ -59,38 +62,41 @@
             android:layout_height="0dp"
             android:layout_weight="2"
             android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp" />
+            android:layout_marginRight="50dp"
+            android:hint="*************"
+            android:background="@android:color/white"/>
     </LinearLayout>
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:text="@string/login"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:background="#f7ce5d"
+        android:layout_gravity="end"
+        android:layout_below="@+id/linear_password"/>
     <LinearLayout
         android:id="@+id/linear_button"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="50dp"
         android:layout_marginLeft="50dp"
         android:orientation="horizontal"
-        android:layout_below="@id/linear_password">
+        android:layout_below="@id/button_login">
         <TextView
             android:id="@+id/text_to_register"
-            android:layout_width="120dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/to_register"
             android:textSize="15sp"
             android:textStyle="bold"
             android:textColor="@android:color/white"/>
-        <Button
-            android:id="@+id/button_login"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="60dp"
-            android:text="@string/login"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textAllCaps="false"
-            android:background="#f7ce5d"
-            android:layout_gravity="end"/>
-
     </LinearLayout>
-
-
 </RelativeLayout>
