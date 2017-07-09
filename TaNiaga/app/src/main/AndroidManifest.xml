@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".Login" />
-        <activity android:name=".register"></activity>
+        <activity android:name=".register" />
+        <activity android:name=".Profile"></activity>
     </application>
 
 </manifest>
