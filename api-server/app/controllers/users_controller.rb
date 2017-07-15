@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   # POST /items
   def create
-    @user = User.new(item_params)
+    @user = User.new(email: params[:email], name: params[:name], password: params[:password], address: params[:address], phone_number: params[:phone_number])
 
     if @user.save
       render json: @user, status: :created, location: @user
