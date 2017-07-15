@@ -15,7 +15,12 @@ class ItemsController < ApplicationController
 
   # POST /items
   def create
-    @item = Item.new(item_params)
+    # Bawaan scaffold, ora mudeng
+    # @item = Item.new(item_params)
+
+    @item = Item.new(name: params[:name],
+                      description: params[:description],
+                      price: params[:price])
 
     if @item.save
       render json: @item, status: :created, location: @item
