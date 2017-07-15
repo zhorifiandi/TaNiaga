@@ -93,7 +93,7 @@
         android:layout_marginRight="50dp"
         android:text="@string/login"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textSize="23sp"
         android:textStyle="bold"
         android:textAllCaps="false"
         android:background="@drawable/rounded_button"
@@ -111,9 +111,17 @@
 
         <TextView
             android:id="@+id/text_to_register"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
             android:text="@string/to_register"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Klik di sini."
             android:gravity="center_horizontal"
             android:textColor="@android:color/white"
             android:textSize="15sp"
