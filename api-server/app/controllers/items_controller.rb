@@ -20,7 +20,11 @@ class ItemsController < ApplicationController
 
     @item = Item.new(name: params[:name],
                       description: params[:description],
-                      price: params[:price])
+                      price: params[:price],
+                      category: params[:category],
+                      variety: params[:variety],
+                      dimension: params[:dimension],
+                      seller_email: params[:seller_email])
 
     if @item.save
       render json: @item, status: :created, location: @item
@@ -33,7 +37,11 @@ class ItemsController < ApplicationController
   def update
     if @item.update(name: params[:name],
                       description: params[:description],
-                      price: params[:price])
+                      price: params[:price],
+                      category: params[:category],
+                      variety: params[:variety],
+                      dimension: params[:dimension],
+                      seller_email: params[:seller_email])
       render json: @item
     else
       render json: @item.errors, status: :unprocessable_entity
