@@ -34,8 +34,13 @@ ActiveRecord::Schema.define(version: 20170720140256) do
     t.string   "buyer_name"
     t.integer  "amount_price"
     t.text     "description"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "transaction_code"
+    t.boolean  "ispaid"
+    t.boolean  "issent"
+    t.boolean  "isreceived"
+    t.datetime "date_expired"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "users", force: :cascade do |t|

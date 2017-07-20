@@ -10,6 +10,11 @@ class CreateTransactions < ActiveRecord::Migration[5.0]
       t.string :buyer_name
       t.integer :amount_price
       t.text :description
+      t.string :transaction_code
+      t.boolean :ispaid
+      t.boolean :issent
+      t.boolean :isreceived
+      t.datetime :date_expired
 
       t.timestamps
     end

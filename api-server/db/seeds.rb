@@ -14,3 +14,5 @@ User.create(email: "wiegasonora@gmail.com", name: "Wiega", password: "lelahjombl
 Item.create(name: "Jagung Kuning Langsat",
             description: "Rasa sangat gurih",
             price: 40000)
+
+Transaction.create(item_id: 1, seller_id: 1, buyer_id: 2, amount_price: 100000)

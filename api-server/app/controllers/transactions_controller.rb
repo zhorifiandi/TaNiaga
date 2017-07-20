@@ -15,6 +15,9 @@ class TransactionsController < ApplicationController
 
   # POST /transactions
   def create
+    # Create random string for transactions code
+    o = [('a'..'z'), ('A'..'Z')].map(&:to_a).flatten
+    random_string = (0...5).map { o[rand(o.length)] }.join.upcase
     @transaction = Transaction.new(date: DateTime.now.to_date,
                                     item_id: params[:item_id],
                                     seller_id: params[:seller_id],
@@ -23,7 +26,12 @@ class TransactionsController < ApplicationController
                                     seller_name: params[:seller_name],
                                     buyer_name: params[:buyer_name],
                                     amount_price: params[:amount_price],
-                                    description: params[:description]  )
+                                    description: params[:description],
+                                    transaction_code: random_string,
+                                    ispaid: false,
+                                    issent: false,
+                                    isreceived: false,
+                                    date_expired: 10.days.from_now )
 
     if @transaction.save
       render json: @transaction, status: :created, location: @transaction
@@ -42,7 +50,12 @@ class TransactionsController < ApplicationController
                                     seller_name: params[:seller_name],
                                     buyer_name: params[:buyer_name],
                                     amount_price: params[:amount_price],
-                                    description: params[:description])
+                                    description: params[:description],
+                                    transaction_code: random_string,
+                                    ispaid: params[:ispaid],
+                                    issent: params[:issent],
+                                    isreceived: params[:isreceived],
+                                    date_expired: params[:date_expired] )
       render json: @transaction
     else
       render json: @transaction.errors, status: :unprocessable_entity
