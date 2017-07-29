@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".Login" />
-        <activity android:name=".register"></activity>
+        <activity android:name=".register" />
         <activity android:name=".Profile" />
         <activity android:name=".Premium" />
         <activity android:name=".Category" />
@@ -21,7 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Home"></activity>
+        <activity android:name=".Home" />
+        <activity android:name=".ComposeMessage" />
+        <activity android:name=".Inbox" />
+        <activity android:name=".Contact" />
+        <activity android:name=".SentMessage" />
+        <activity android:name=".DetailInbox" />
+        <activity android:name=".DetailSent" />
+        <activity android:name=".CreateContact" />
+        <activity android:name=".ProductDetail"></activity>
     </application>
 
 </manifest>

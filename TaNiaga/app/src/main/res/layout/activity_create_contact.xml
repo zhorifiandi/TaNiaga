@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cidoeq.taniaga.CreateContact">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:id="@+id/linear_title_create_contact"
+        android:background="#01a79d"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/button_backtologin"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:layout_marginLeft="5dp"
+            android:padding="17dp"
+            android:src="@drawable/left_arrow"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:gravity="center_vertical"
+            android:text="Tambah Petani"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_below="@+id/linear_title_create_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Nama:"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"/>
+    <EditText
+        android:layout_below="@+id/text_name"
+        android:id="@+id/edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+    <TextView
+        android:layout_below="@+id/edit_name"
+        android:id="@+id/text_no_hp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="No HP:"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@android:color/black"/>
+    <EditText
+        android:layout_below="@+id/text_no_hp"
+        android:inputType="phone"
+        android:id="@+id/edit_no_hp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+    <TextView
+        android:layout_below="@+id/edit_no_hp"
+        android:id="@+id/text_hasil_tani"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Hasil Tani:"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@android:color/black"/>
+    <EditText
+        android:layout_below="@+id/text_hasil_tani"
+        android:id="@+id/edit_hasil_tani"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+    <Button
+        android:id="@+id/button_save"
+        android:layout_below="@id/edit_hasil_tani"
+        android:layout_marginTop="20dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Simpan"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button_save"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp" />
+</RelativeLayout>
