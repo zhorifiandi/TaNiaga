@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :users
 
-  post '/sms/send', :to => "sms#send"
-  # post '/sms/receive', :to => "sms#receive"
+  post '/sms/send_message', :to => "sms#send_message"
+  post '/sms/receive_message', :to => "sms#receive_message"
 
   # resources :sms do
   #   collection do

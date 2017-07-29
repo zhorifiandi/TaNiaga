@@ -16,7 +16,7 @@ class SmsController < ApplicationController
     render :text => 'Index page of SMS Controller'
   end
 
-  def receive
+  def receive_message
     if request.post?
       # page = Nokogiri::HTML(open(RECEIVED_URL))
       #
@@ -25,24 +25,24 @@ class SmsController < ApplicationController
     end
   end
 
-  def send(dummy)
+  def send_message
     if request.post?
       phone_number = params['phone_number']
       content_message = params['content_message']
 
-      # tr = Telerivet::API.new(API_KEY)
-      # project = tr.init_project_by_id(PROJECT_ID)
+      tr = Telerivet::API.new(API_KEY)
+      project = tr.init_project_by_id(PROJECT_ID)
 
-      # Send a SMS message
-      # project.send_message({
-      #     to_number: phone_number,
-      #     content: content_message
-      # })
+      Send a SMS message
+      project.send_message({
+          to_number: phone_number,
+          content: content_message
+      })
 
-      # ret_text = '{successful: "true", phone_number: ' + '"' + phone_number + '", ' + "content_message: " + '"' + content_message + '"}'
+      ret_text = '{successful: "true", phone_number: ' + '"' + phone_number + '", ' + "content_message: " + '"' + content_message + '"}'
 
-      render plain: dummy
-      # render json: ret_text
+      # render plain: dummy
+      render json: ret_text
     end
   end
 
