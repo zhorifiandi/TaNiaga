@@ -110,6 +110,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    telerivet (1.2.1)
     thor (0.19.4)
     thread_safe (0.3.6)
     tzinfo (1.2.3)
@@ -132,6 +133,7 @@ DEPENDENCIES
   simple_command
   spring
   spring-watcher-listen (~> 2.0.0)
+  telerivet
   tzinfo-data
 
 BUNDLED WITH
