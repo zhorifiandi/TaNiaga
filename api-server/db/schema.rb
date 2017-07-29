@@ -10,21 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170715124110) do
+ActiveRecord::Schema.define(version: 20170720140256) do
 
-  create_table "items", force: :cascade do |t|
+  create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.text     "description"
+    t.text     "description",  limit: 65535
     t.string   "category"
     t.integer  "price"
     t.string   "variety"
     t.string   "dimension"
     t.string   "seller_email"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "transactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "date"
+    t.integer  "item_id"
+    t.integer  "seller_id"
+    t.integer  "buyer_id"
+    t.string   "item_name"
+    t.string   "seller_name"
+    t.string   "buyer_name"
+    t.integer  "amount_price"
+    t.text     "description",      limit: 65535
+    t.string   "transaction_code"
+    t.boolean  "ispaid"
+    t.boolean  "issent"
+    t.boolean  "isreceived"
+    t.datetime "date_expired"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
