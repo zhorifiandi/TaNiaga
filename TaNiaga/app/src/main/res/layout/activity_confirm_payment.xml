@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cidoeq.taniaga.ConfirmPayment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:id="@+id/linear_title_confirm_purchase"
+        android:background="#01a79d"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/button_backtologin"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:layout_marginLeft="5dp"
+            android:padding="17dp"
+            android:src="@drawable/left_arrow"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:gravity="center_vertical"
+            android:text="Konfirmasi Pembelian"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@id/linear_title_confirm_purchase"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="20dp"
+            android:padding="5dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_gravity="center|center"/>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/text_nama_produk"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.5"/>
+                <TextView
+                    android:id="@+id/text_total_bayar"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Petunjuk Pembayaran"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="3"
+            android:text="BCA:\nTransfer ke 0808080808"
+            android:textSize="20sp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mandiri:\n Transfer ke 0800907878787798"
+            android:lines="3"
+            android:textSize="20sp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BNI:\nTransfer ke 9090909090"
+            android:lines="3"
+            android:textSize="20sp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="Selesai"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_button_compose"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -29,7 +29,16 @@
         <activity android:name=".DetailInbox" />
         <activity android:name=".DetailSent" />
         <activity android:name=".CreateContact" />
-        <activity android:name=".ProductDetail"></activity>
+        <activity android:name=".ProductDetail" />
+        <activity android:name=".ConfirmPurchase" />
+        <activity android:name=".ConfirmPayment" />
+        <activity android:name=".PurchaseHistory" />
+        <activity android:name=".SearchResult" />
+        <activity android:name=".SoldItem" />
+        <activity android:name=".SoldHistory" />
+        <activity android:name=".DeleteProduct" />
+        <activity android:name=".Sell" />
+        <activity android:name=".SoldProductDetail"></activity>
     </application>
 
 </manifest>
