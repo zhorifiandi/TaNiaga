@@ -22,7 +22,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".Home" />
-        <activity android:name=".ComposeMessage"></activity>
+        <activity android:name=".ComposeMessage" />
+        <activity android:name=".Inbox" />
+        <activity android:name=".Contact" />
+        <activity android:name=".SentMessage" />
+        <activity android:name=".DetailInbox" />
+        <activity android:name=".DetailSent" />
+        <activity android:name=".CreateContact" />
+        <activity android:name=".ProductDetail"></activity>
     </application>
 
 </manifest>
