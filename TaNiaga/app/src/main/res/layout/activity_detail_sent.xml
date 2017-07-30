@@ -16,7 +16,7 @@
         android:layout_alignParentStart="true">
 
         <ImageView
-            android:id="@+id/button_backtologin"
+            android:id="@+id/button_back_detail"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -66,7 +66,8 @@
                 android:id="@+id/text_detail_sent_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left|top"/>
+                android:gravity="left|top"
+                android:lines="10"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -16,7 +16,7 @@
         android:layout_alignParentStart="true">
 
         <ImageView
-            android:id="@+id/button_backtologin"
+            android:id="@+id/button_back_inbox"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -41,18 +41,22 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
+
         <Button
-            android:background="@drawable/rounded_button_compose"
+            android:id="@+id/button_inbox_compose"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:layout_weight="1"
+            android:background="@drawable/rounded_button_compose"
             android:text="Tulis"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
             android:textAllCaps="false"
-            android:layout_margin="5dp"/>
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <Button
+            android:id="@+id/button_inbox_contact"
             android:background="@drawable/rounded_button_contact"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -63,22 +67,26 @@
             android:textColor="@android:color/white"
             android:textAllCaps="false"
             android:layout_margin="5dp"/>
+
         <Button
-            android:background="@drawable/rounded_button_sent"
+            android:id="@+id/button_inbox_sent"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:layout_weight="1"
+            android:background="@drawable/rounded_button_sent"
             android:text="Terkirim"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
             android:textAllCaps="false"
-            android:layout_margin="5dp"/>
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </LinearLayout>
     <ScrollView
-        android:layout_below="@+id/linear_button_message"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
