@@ -7,21 +7,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class Inbox extends AppCompatActivity {
+public class Inbox extends AppCompatActivity implements View.OnClickListener{
+
+    public ImageView buttonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inbox);
 
-        ImageView buttonBack = (ImageView) findViewById(R.id.button_back_inbox);
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Inbox.this, Home.class);
-                startActivity(i);
-            }
-        });
+        buttonBack = (ImageView) findViewById(R.id.button_back_inbox);
+        buttonBack.setOnClickListener(this);
 
         Button buttonCompose = (Button) findViewById(R.id.button_inbox_compose);
         buttonCompose.setOnClickListener(new View.OnClickListener() {
@@ -49,5 +45,14 @@ public class Inbox extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    @Override
+    public void onClick(View v){
+        if (v == buttonBack ) {
+            Intent i = new Intent(Inbox.this, Home.class);
+            startActivity(i);
+        }
+
     }
 }

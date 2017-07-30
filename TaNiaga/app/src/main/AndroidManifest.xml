@@ -11,11 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Login" />
-        <activity android:name=".register" />
-        <activity android:name=".Profile" />
-        <activity android:name=".Premium" />
-        <activity android:name=".Category" />
+        <activity android:name=".Login" ></activity>
+        <activity android:name=".register" ></activity>
+        <activity android:name=".Profile" ></activity>
+        <activity android:name=".Premium" ></activity>
+        <activity android:name=".Category" ></activity>
         <activity android:name=".Splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,24 +23,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Home" />
-        <activity android:name=".ComposeMessage" />
-        <activity android:name=".Inbox" />
-        <activity android:name=".Contact" />
-        <activity android:name=".SentMessage" />
-        <activity android:name=".DetailInbox" />
-        <activity android:name=".DetailSent" />
-        <activity android:name=".CreateContact" />
-        <activity android:name=".ProductDetail" />
-        <activity android:name=".ConfirmPurchase" />
-        <activity android:name=".ConfirmPayment" />
-        <activity android:name=".PurchaseHistory" />
-        <activity android:name=".SearchResult" />
-        <activity android:name=".SoldItem" />
-        <activity android:name=".SoldHistory" />
-        <activity android:name=".DeleteProduct" />
-        <activity android:name=".Sell" />
-        <activity android:name=".SoldProductDetail"></activity>
+        <activity android:name=".Home" ></activity>
+        <activity android:name=".ComposeMessage" ></activity>
+        <activity android:name=".Inbox" ></activity>
+        <activity android:name=".Contact" ></activity>
+        <activity android:name=".SentMessage" ></activity>
+        <activity android:name=".DetailInbox" ></activity>
+        <activity android:name=".DetailSent" ></activity>
+        <activity android:name=".CreateContact" ></activity>
+        <activity android:name=".ProductDetail" ></activity>
+        <activity android:name=".ConfirmPurchase" ></activity>
+        <activity android:name=".ConfirmPayment" ></activity>
+        <activity android:name=".PurchaseHistory" ></activity>
+        <activity android:name=".SearchResult" ></activity>
+        <activity android:name=".SoldItem" ></activity>
+        <activity android:name=".SoldHistory" ></activity>
+        <activity android:name=".DeleteProduct" ></activity>
+        <activity android:name=".Sell" ></activity>
+        <activity android:name=".SoldProductDetail"/>
     </application>
 
 </manifest>
