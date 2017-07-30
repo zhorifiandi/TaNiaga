@@ -8,7 +8,11 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import cidoeq.taniaga.Helper.SharedPrefManager;
+
 public class Home extends AppCompatActivity {
+
+    public String auth_token = SharedPrefManager.getInstance(Home.this).getDeviceToken();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,5 +42,8 @@ public class Home extends AppCompatActivity {
                 }
             }
         });
+
+        System.out.println("FROM HOME, TOKEN:");
+        System.out.println(auth_token);
     }
 }
