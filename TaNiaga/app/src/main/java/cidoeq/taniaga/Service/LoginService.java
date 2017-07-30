@@ -15,7 +15,7 @@ import retrofit2.http.Query;
  */
 
 public interface LoginService {
-    public static final String API_URL = "http://172.16.0.69:3000/";
+    public static final String API_URL = "http://192.168.43.239:3000/";
 
     @POST("authenticate")
     Call<User> getToken(@Query("email") String email, @Query("password") String password);
