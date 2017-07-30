@@ -11,6 +11,10 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.List;
+
+import cidoeq.taniaga.Model.Item;
+
 /**
  * Created by toshiba on 30/7/2017.
  */
@@ -25,28 +29,21 @@ public class ItemAdapter extends BaseAdapter {
     String[] seller;
     int nItem;
 
-    public ItemAdapter(Context applicationContext, int nItems){
-        nItem = nItems;
+    public ItemAdapter(Context applicationContext, List<Item> items){
+        nItem = items.size();
         context = applicationContext;
-        name = new String[nItems];
-        for (int i=0; i < nItems; i++){
-            name[i] = "JAGUNG SUPER";
+        name = new String[nItem];
+        price = new int[nItem];
+        category = new String[nItem];
+        seller = new String[nItem];
+
+        for (int i=0; i < nItem; i++){
+            name[i] = items.get(i).getName();
+            price[i] = items.get(i).getPrice();
+            category[i] = items.get(i).getCategory();
+            seller[i] = items.get(i).getSeller_name();
         }
 
-        price = new int[nItems];
-        for (int i = 0; i < nItems; i++){
-            price[i] = 10000;
-        }
-
-        category = new String[nItems];
-        for (int i=0; i < nItems; i++){
-            category[i] = "BAWANGGG";
-        }
-
-        seller = new String[nItems];
-        for (int i=0; i < nItems; i++){
-            seller[i] = "PACIL";
-        }
 
         inflter = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }

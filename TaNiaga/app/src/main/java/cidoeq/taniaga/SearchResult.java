@@ -24,9 +24,9 @@ public class SearchResult extends AppCompatActivity {
             }
         });
 
-        ListView listBarangBarangHasilPencarian = (ListView) findViewById(R.id.list_view_for_search_result);
-        ItemAdapter searchResultAdapter = new ItemAdapter(this, 10);
-        listBarangBarangHasilPencarian.setAdapter(searchResultAdapter);
+//        ListView listBarangBarangHasilPencarian = (ListView) findViewById(R.id.list_view_for_search_result);
+//        ItemAdapter searchResultAdapter = new ItemAdapter(this, 10);
+//        listBarangBarangHasilPencarian.setAdapter(searchResultAdapter);
 
 
     }

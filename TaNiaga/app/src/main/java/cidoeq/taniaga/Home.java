@@ -10,6 +10,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import java.util.Iterator;
 import java.util.List;
@@ -24,6 +25,7 @@ import retrofit2.Response;
 
 public class Home extends AppCompatActivity {
 
+    public ListView listForHome;
     public String auth_token = SharedPrefManager.getInstance(Home.this).getDeviceToken();
     final User current_user = SharedPrefManager.getInstance(Home.this).getUser();
     Call<List<Item>> responseCallForRetrieve;
@@ -33,6 +35,7 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         final EditText editSearch= (EditText) findViewById(R.id.edit_search);
+        listForHome = (ListView) findViewById(R.id.list_for_home);
         getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
         );
@@ -93,6 +96,8 @@ public class Home extends AppCompatActivity {
             public void onResponse(Call<List<Item>> call, Response<List<Item>> response) {
                 if (response.isSuccessful()){
                     List<Item> body = response.body();
+                    ItemAdapter itemAdapterForHome = new ItemAdapter(Home.this, body);
+                    listForHome.setAdapter(itemAdapterForHome);
                     System.out.println("HOME HASILNYA:");
                     for (Iterator<Item> i = body.iterator(); i.hasNext();){
                         Item item = i.next();
