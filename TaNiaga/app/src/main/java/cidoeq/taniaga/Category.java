@@ -18,7 +18,7 @@ public class Category extends AppCompatActivity {
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Category.this, Home.class);
+                Intent i = new Intent(getApplicationContext(), Home.class);
                 startActivity(i);
             }
         });

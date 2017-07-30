@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import cidoeq.taniaga.Helper.SharedPrefManager;
 import cidoeq.taniaga.Model.User;
-import cidoeq.taniaga.Service.LoginService;
+import cidoeq.taniaga.Service.APIService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -100,7 +100,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         progressDialog.setMessage("Logging in...");
         progressDialog.show();
 
-        responseCallForLogin = LoginService.service.getToken(email, password);
+        responseCallForLogin = APIService.service.getToken(email, password);
 
         responseCallForLogin.enqueue(new Callback<User>() {
             @Override
@@ -132,7 +132,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     }
 
     void retrieveUser(String email, String token) {
-        responseCallForRetrieve = LoginService.service.getUserInfo(email, token);
+        responseCallForRetrieve = APIService.service.getUserInfo(email, token);
         responseCallForRetrieve.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {

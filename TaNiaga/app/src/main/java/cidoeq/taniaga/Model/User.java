@@ -11,6 +11,10 @@ import java.util.List;
  */
 
 public class User {
+    @SerializedName("id")
+    @Expose
+    private int id;
+
     @SerializedName("email")
     @Expose
     private String email;
