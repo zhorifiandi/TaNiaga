@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.v4.util.LogWriter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,7 +12,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import cidoeq.taniaga.Helper.SharedPrefManager;
@@ -25,7 +23,8 @@ import retrofit2.Response;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
-    Call<User> responseCall;
+    Call<User> responseCallForLogin;
+    Call<User> responseCallForRetrieve;
 
     //defining views
     private Button buttonSignIn;
@@ -79,8 +78,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void userLogin() {
-        String email = editTextEmail.getText().toString().trim();
-        String password  = editTextPassword.getText().toString().trim();
+        final String email = editTextEmail.getText().toString().trim();
+        final String password  = editTextPassword.getText().toString().trim();
 
 
         //checking if email and passwords are empty
@@ -101,9 +100,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         progressDialog.setMessage("Logging in...");
         progressDialog.show();
 
-        responseCall = LoginService.service.getToken(email, password);
+        responseCallForLogin = LoginService.service.getToken(email, password);
 
-        responseCall.enqueue(new Callback<User>() {
+        responseCallForLogin.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful()){
@@ -111,6 +110,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     System.out.println("HASILNYA:");
                     System.out.println(body.getAuthToken());
                     SharedPrefManager.getInstance(Login.this).saveDeviceToken(body.getAuthToken());
+                    retrieveUser(email,body.getAuthToken());
                     progressDialog.dismiss();
                     finish();
                     startActivity(new Intent(getApplicationContext(), Home.class));
@@ -129,9 +129,34 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
             }
         });
+    }
 
+    void retrieveUser(String email, String token) {
+        responseCallForRetrieve = LoginService.service.getUserInfo(email, token);
+        responseCallForRetrieve.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.isSuccessful()){
+                    User body = response.body();
+                    System.out.println("HASILNYA:");
+                    System.out.println(body.getEmail());
+                    System.out.println(body.getName());
+                    System.out.println(body.getAddress());
+                    System.out.println(body.getPhonenumber());
+                    SharedPrefManager.getInstance(Login.this).saveUserInfo(body);
+                }
+                else {
 
+                    System.out.println(response.message());
+                    System.out.println("Gagal");
 
+                }
+            }
 
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
     }
 }

@@ -23,7 +23,7 @@ public class User {
     @Expose
     private String address;
 
-    @SerializedName("phonenumber")
+    @SerializedName("phone_number")
     @Expose
     private String phonenumber;
 
@@ -37,5 +37,37 @@ public class User {
 
     public String getAuthToken() {
         return auth_token;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setAuthToken(String authToken) {
+        this.auth_token = auth_token;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

@@ -1,5 +1,6 @@
 package cidoeq.taniaga.Service;
 
+import cidoeq.taniaga.Helper.SharedPrefManager;
 import cidoeq.taniaga.Model.User;
 
 
@@ -7,6 +8,8 @@ import cidoeq.taniaga.Model.User;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -19,6 +22,10 @@ public interface LoginService {
 
     @POST("authenticate")
     Call<User> getToken(@Query("email") String email, @Query("password") String password);
+
+//    @Headers("Authorization: "+ )
+    @POST("show_by_email")
+    Call<User> getUserInfo(@Query("email") String email, @Header("Authorization") String token);
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(API_URL)

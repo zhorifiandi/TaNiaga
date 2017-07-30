@@ -12,10 +12,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import cidoeq.taniaga.Helper.SharedPrefManager;
+import cidoeq.taniaga.Model.User;
 
 public class Home extends AppCompatActivity {
 
     public String auth_token = SharedPrefManager.getInstance(Home.this).getDeviceToken();
+    final User current_user = SharedPrefManager.getInstance(Home.this).getUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,5 +68,9 @@ public class Home extends AppCompatActivity {
 
         System.out.println("FROM HOME, TOKEN:");
         System.out.println(auth_token);
+        System.out.println(current_user.getEmail());
+        System.out.println(current_user.getName());
+        System.out.println(current_user.getAddress());
+        System.out.println(current_user.getPhonenumber());
     }
 }
