@@ -42,6 +42,15 @@ public class SharedPrefManager {
         return  sharedPreferences.getString(TAG_TOKEN, null);
     }
 
+    //this method will delete the device token from shared preferences
+    public boolean deleteDeviceToken(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(TAG_TOKEN, null);
+        editor.apply();
+        return true;
+    }
+
 
 
 }
