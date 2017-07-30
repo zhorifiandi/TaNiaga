@@ -16,7 +16,7 @@
         android:layout_alignParentStart="true">
 
         <ImageView
-            android:id="@+id/button_backtologin"
+            android:id="@+id/button_confirm_back"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -47,6 +47,7 @@
             android:padding="5dp"
             android:orientation="horizontal">
             <ImageView
+                android:id="@+id/image_confirm"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_gravity="center|center"/>
@@ -74,6 +75,7 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp"/>
         <EditText
+            android:id="@+id/edit_nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -86,6 +88,7 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp"/>
         <EditText
+            android:id="@+id/edit_no_hp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -102,12 +105,14 @@
             android:textSize="20sp" />
 
         <EditText
+            android:id="@+id/edit_alamat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:lines="3"/>
         <Button
+            android:id="@+id/button_confirm_continue"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"

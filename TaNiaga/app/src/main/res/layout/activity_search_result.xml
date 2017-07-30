@@ -16,7 +16,7 @@
         android:layout_alignParentStart="true">
 
         <ImageView
-            android:id="@+id/button_backtologin"
+            android:id="@+id/button_back"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -59,6 +59,7 @@
             android:paddingTop="7dp" />
 
         <ImageView
+            android:id="@+id/button_search"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:background="@drawable/rounded_button_search"

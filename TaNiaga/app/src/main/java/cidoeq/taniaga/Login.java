@@ -40,21 +40,32 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        Window windowLogin = getWindow();
-        windowLogin.setStatusBarColor(Color.rgb(0, 102, 61));
+        boolean isLoggedin = false;
+
+        if (SharedPrefManager.getInstance(Login.this).getDeviceToken() != null) {
+            System.out.println("Already Logged in");
+            super.onCreate(savedInstanceState);
+            finish();
+            startActivity(new Intent(getApplicationContext(), Home.class));
+        }
+        else {
+            System.out.println("Belum Logged in");
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_login);
+            Window windowLogin = getWindow();
+            windowLogin.setStatusBarColor(Color.rgb(0, 102, 61));
 
 
-        //initializing views
-        editTextEmail = (EditText) findViewById(R.id.email_login);
-        editTextPassword = (EditText) findViewById(R.id.password_login);
-        buttonSignIn = (Button) findViewById(R.id.button_login);
+            //initializing views
+            editTextEmail = (EditText) findViewById(R.id.email_login);
+            editTextPassword = (EditText) findViewById(R.id.password_login);
+            buttonSignIn = (Button) findViewById(R.id.button_login);
 
-        //attaching click listener
-        buttonSignIn.setOnClickListener(this);
+            //attaching click listener
+            buttonSignIn.setOnClickListener(this);
 
-        progressDialog = new ProgressDialog(this);
+            progressDialog = new ProgressDialog(this);
+        }
 
 
     }
@@ -100,8 +111,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     System.out.println("HASILNYA:");
                     System.out.println(body.getAuthToken());
                     SharedPrefManager.getInstance(Login.this).saveDeviceToken(body.getAuthToken());
-                    startActivity(new Intent(getApplicationContext(), Home.class));
                     progressDialog.dismiss();
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), Home.class));
                 }
                 else {
 
