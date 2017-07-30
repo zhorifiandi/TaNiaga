@@ -27,7 +27,7 @@ public interface APIService {
     Call<User> getToken(@Query("email") String email, @Query("password") String password);
 
     @POST("users")
-    Call<User> SignUp(@Query("email") String email, @Query("password") String password, );
+    Call<User> SignUp(@Query("email") String email, @Query("password") String password, @Query("name") String name, @Query("address") String address, @Query("phonenumber") String phonenumber );
 
     @POST("show_by_email")
     Call<User> getUserInfo(@Query("email") String email, @Header("Authorization") String token);
