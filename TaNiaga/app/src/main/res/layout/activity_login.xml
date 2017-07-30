@@ -37,7 +37,7 @@
             android:textColor="@android:color/white" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/email_login"
             android:inputType="textEmailAddress"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -71,7 +71,7 @@
             android:textColor="@android:color/white" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/password_login"
             android:inputType="textPassword"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
