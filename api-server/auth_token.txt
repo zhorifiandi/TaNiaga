@@ -1,1 +1,3 @@
-"auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1MDEzNzAzOTR9.9Wsxj9us2G1hDZj0nKq6ommWfXbKtX5nup3SfSPnHq8"
+"auth_token": "{
+    "auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1MDE0ODQ0NTV9.F0cGGn6hoELb3TklnnZEs79a5oUp8TULCJUBRIv6uy0"
+}"
