@@ -44,115 +44,111 @@
             android:padding="12dp"
             android:src="@drawable/chat" />
     </LinearLayout>
-    <ScrollView
-        android:id="@+id/scroll_home"
-        android:layout_below="@+id/linear_title_home"
+    <LinearLayout
+        android:layout_below="@id/linear_title_home"
+        android:id="@+id/linear_search"
         android:layout_width="match_parent"
-        android:layout_height="350dp">
-        <RelativeLayout
+        android:layout_height="50dp"
+        android:padding="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edit_search"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_edit_search"
+            android:hint="Apa yang ingin Anda cari ?"
+            android:cursorVisible="false"
+            android:paddingBottom="7dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="7dp" />
+
+        <ImageView
+            android:id="@+id/button_search"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_button_search"
+            android:padding="9dp"
+            android:src="@drawable/search"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/text_produk_terlaris"
+        android:layout_below="@+id/linear_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:textSize="15dp"
+        android:text="Produk Terlaris"
+        android:textColor="@android:color/black"/>
+
+    <ListView
+        android:id="@+id/list_terlaris"
+        android:layout_below="@+id/text_produk_terlaris"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
+            <!--<HorizontalScrollView-->
+                <!--android:id="@+id/scroll_terlaris"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="180dp"-->
+                <!--android:padding="10dp"-->
+                <!--android:layout_below="@+id/text_produk_terlaris"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--android:layout_alignParentStart="true">-->
+
+            <!--</HorizontalScrollView>-->
+    <LinearLayout
+        android:id="@+id/linear_kategori"
+        android:layout_below="@+id/list_terlaris"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_icon_kategori"
+            android:src="@drawable/four_squares"
+            android:padding="15dp"
+            android:layout_gravity="center_horizontal|center_vertical"/>
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:id="@+id/linear_search"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:padding="5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_text_kategori"
+            android:text="Kategori"
+            android:gravity="left|center_vertical"
+            android:textSize="23dp"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/text_produk_disarankan"
+        android:layout_below="@+id/linear_kategori"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:textSize="15dp"
+        android:text="Produk Disarankan"
+        android:textColor="@android:color/black"/>
 
-                <EditText
-                    android:id="@+id/edit_search"
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/rounded_edit_search"
-                    android:hint="Apa yang ingin Anda cari ?"
-                    android:cursorVisible="false"
-                    android:paddingBottom="7dp"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:paddingTop="7dp" />
+    <!--<HorizontalScrollView
+        android:id="@+id/scroll_disarankan"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:padding="10dp"
+        android:layout_below="@+id/text_produk_disarankan"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-                <ImageView
-                    android:id="@+id/button_search"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/rounded_button_search"
-                    android:padding="9dp"
-                    android:src="@drawable/search"/>
-            </LinearLayout>
-            <TextView
-                android:id="@+id/text_produk_terlaris"
-                android:layout_below="@+id/linear_search"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:textSize="15dp"
-                android:text="Produk Terlaris"
-                android:textColor="@android:color/black"/>
-            <HorizontalScrollView
-                android:id="@+id/scroll_terlaris"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:padding="10dp"
-                android:layout_below="@+id/text_produk_terlaris"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
-
-            </HorizontalScrollView>
-            <LinearLayout
-                android:id="@+id/linear_kategori"
-                android:layout_below="@+id/scroll_terlaris"
-                android:layout_width="170dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp">
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/rounded_icon_kategori"
-                    android:src="@drawable/four_squares"
-                    android:padding="15dp"
-                    android:layout_gravity="center_horizontal|center_vertical"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/rounded_text_kategori"
-                    android:text="Kategori"
-                    android:gravity="left|center_vertical"
-                    android:textSize="23dp"
-                    android:textColor="@android:color/white"/>
-            </LinearLayout>
-            <TextView
-                android:id="@+id/text_produk_disarankan"
-                android:layout_below="@+id/linear_kategori"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:paddingLeft="20dp"
-                android:textSize="15dp"
-                android:text="Produk Disarankan"
-                android:textColor="@android:color/black"/>
-
-            <!--<HorizontalScrollView
-                android:id="@+id/scroll_disarankan"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:padding="10dp"
-                android:layout_below="@+id/text_produk_disarankan"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
-
-            </HorizontalScrollView>-->
-        </RelativeLayout>
-
-    </ScrollView>
+    </HorizontalScrollView>-->
     <ListView
         android:id="@+id/list_for_home"
-        android:layout_below="@+id/scroll_home"
+        android:layout_below="@+id/text_produk_disarankan"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent">
-
+        android:layout_height="wrap_content">
     </ListView>
 
 </RelativeLayout>

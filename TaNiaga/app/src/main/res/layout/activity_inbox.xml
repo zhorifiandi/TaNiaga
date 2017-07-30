@@ -82,6 +82,7 @@
             android:textStyle="bold" />
     </LinearLayout>
     <ScrollView
+        android:layout_below="@+id/linear_button_message"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"

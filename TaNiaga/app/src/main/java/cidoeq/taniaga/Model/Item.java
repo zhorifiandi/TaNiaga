@@ -88,4 +88,44 @@ public class Item {
     public String getSeller_name() {
         return seller_name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setSeller_name(String seller_name) {
+        this.seller_name = seller_name;
+    }
+
+    public void setSeller_id(int seller_id) {
+        this.seller_id = seller_id;
+    }
+
+    public void setSeller_email(String seller_email) {
+        this.seller_email = seller_email;
+    }
+
+    public void setDimension(String dimension) {
+        this.dimension = dimension;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setVariety(String variety) {
+        this.variety = variety;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

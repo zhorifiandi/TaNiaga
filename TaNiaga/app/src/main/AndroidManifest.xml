@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".Login" ></activity>
-        <activity android:name=".register" ></activity>
+        <activity android:name=".Register" ></activity>
         <activity android:name=".Profile" ></activity>
         <activity android:name=".Premium" ></activity>
         <activity android:name=".Category" ></activity>

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import cidoeq.taniaga.Helper.SharedPrefManager;
@@ -30,6 +31,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private Button buttonSignIn;
     private EditText editTextEmail;
     private EditText editTextPassword;
+    private TextView buttonRegister;
 
     //progress dialog
     private ProgressDialog progressDialog;
@@ -59,9 +61,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             editTextEmail = (EditText) findViewById(R.id.email_login);
             editTextPassword = (EditText) findViewById(R.id.password_login);
             buttonSignIn = (Button) findViewById(R.id.button_login);
+            buttonRegister = (TextView) findViewById(R.id.button_login_register);
 
             //attaching click listener
             buttonSignIn.setOnClickListener(this);
+            buttonRegister.setOnClickListener(this);
 
             progressDialog = new ProgressDialog(this);
         }
@@ -73,6 +77,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         if(v == buttonSignIn){
             userLogin();
+        } else if (v == buttonRegister){
+            Intent i = new Intent(Login.this, Register.class);
+            startActivity(i);
         }
 
     }

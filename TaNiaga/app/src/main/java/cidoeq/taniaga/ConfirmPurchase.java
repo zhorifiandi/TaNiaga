@@ -27,7 +27,7 @@ public class ConfirmPurchase extends AppCompatActivity {
         buttonContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ConfirmPurchase.this, Home.class);
+                Intent i = new Intent(ConfirmPurchase.this, ConfirmPayment.class);
                 startActivity(i);
             }
         });

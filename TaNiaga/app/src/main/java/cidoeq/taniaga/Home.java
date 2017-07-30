@@ -2,14 +2,19 @@ package cidoeq.taniaga;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import java.util.Iterator;
@@ -26,6 +31,8 @@ import retrofit2.Response;
 public class Home extends AppCompatActivity {
 
     public ListView listForHome;
+    public ListView listForHome1;
+    public LinearLayout buttonCategory;
     public String auth_token = SharedPrefManager.getInstance(Home.this).getDeviceToken();
     final User current_user = SharedPrefManager.getInstance(Home.this).getUser();
     Call<List<Item>> responseCallForRetrieve;
@@ -36,6 +43,20 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         final EditText editSearch= (EditText) findViewById(R.id.edit_search);
         listForHome = (ListView) findViewById(R.id.list_for_home);
+        listForHome1 = (ListView) findViewById(R.id.list_terlaris);
+        buttonCategory = (LinearLayout) findViewById(R.id.linear_kategori);
+
+        buttonCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Home.this, Category.class);
+                startActivity(i);
+            }
+        });
+
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = pref.edit();
+
         getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
         );
@@ -95,9 +116,10 @@ public class Home extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Item>> call, Response<List<Item>> response) {
                 if (response.isSuccessful()){
-                    List<Item> body = response.body();
+                    final List<Item> body = response.body();
                     ItemAdapter itemAdapterForHome = new ItemAdapter(Home.this, body);
                     listForHome.setAdapter(itemAdapterForHome);
+                    listForHome1.setAdapter(itemAdapterForHome);
                     System.out.println("HOME HASILNYA:");
                     for (Iterator<Item> i = body.iterator(); i.hasNext();){
                         Item item = i.next();
@@ -110,6 +132,22 @@ public class Home extends AppCompatActivity {
                         System.out.println("Sel : " + item.getSeller_email());
                         System.out.println("Var : " + item.getVariety());
                     }
+                    listForHome.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                            SharedPrefManager.getInstance(Home.this).saveItem(body.get(position));
+                            Intent i = new Intent(Home.this, ProductDetail.class);
+                            startActivity(i);
+                        }
+                    } );
+                    listForHome1.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                            SharedPrefManager.getInstance(Home.this).saveItem(body.get(position));
+                            Intent i = new Intent(Home.this, ProductDetail.class);
+                            startActivity(i);
+                        }
+                    } );
                 }
                 else {
 
