@@ -1,11 +1,14 @@
-applications:
-- path: .
-  memory: 256M
-  instances: 1
-  domain: https://api.au-syd.bluemix.net
-  name: api-server
-  host: taniaga
-  disk_quota: 1024M
-  command: rake db:migrate && bin/rails server -p $PORT -e $RAILS_ENV
-  services:
-  - performance-monitoring-auto
+# domain: https://api.au-syd.bluemix.net
+# applications:
+# - path: .
+#   memory: 256M
+#   instances: 1
+#   domain: api-server.au-syd.mybluemix.net
+#   name: api-server
+#   host: taniaga
+#   disk_quota: 1024M
+#   command: rake db:migrate && rake db:seed && rails s
+  # command: rake db:migrate && rake db:seed && bin/rails server -p $PORT -e $RAILS_ENV
+  # services:
+    # - mysql-db
+    # - performance-monitoring-auto

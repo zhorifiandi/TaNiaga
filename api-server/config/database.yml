@@ -27,7 +27,35 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: myapp_development
+  host: us-cdbr-sl-dfw-01.cleardb.net
+  port: 3306
+  database: ibmx_7845c509759153d
   pool: 5
-  username: root
-  password:
+  username: b35e6f0e6b373d
+  password: eb2dd816
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  host: us-cdbr-sl-dfw-01.cleardb.net
+  port: 3306
+  database: ibmx_7845c509759153d
+  pool: 5
+  username: b35e6f0e6b373d
+  password: eb2dd816
+
+# development:
+#   adapter: mysql2
+#   encoding: utf8
+#   database: myapp_development
+#   pool: 5
+#   username: root
+#   password:
+#
+# production:
+#   adapter: mysql2
+#   encoding: utf8
+#   database: myapp_development
+#   pool: 5
+#   username: root
+#   password:

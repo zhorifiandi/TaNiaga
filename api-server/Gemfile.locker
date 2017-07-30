@@ -1,0 +1,22 @@
+GEM
+  remote: https://rubygems.org/
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bcrypt (~> 3.1.7)
+  byebug
+  jwt
+  listen (~> 3.0.5)
+  mysql2 (~> 0.3.16)
+  puma (~> 3.0)
+  rails (~> 5.0.0)
+  simple_command
+  spring
+  spring-watcher-listen (~> 2.0.0)
+  telerivet
+  tzinfo-data
+
+BUNDLED WITH
+   1.15.3
