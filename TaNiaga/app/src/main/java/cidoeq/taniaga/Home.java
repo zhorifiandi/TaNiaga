@@ -1,12 +1,15 @@
 package cidoeq.taniaga;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import cidoeq.taniaga.Helper.SharedPrefManager;
 
@@ -40,6 +43,24 @@ public class Home extends AppCompatActivity {
                 } else {
                     editSearch.setCursorVisible(false);
                 }
+            }
+        });
+
+        ImageView buttonProfile = (ImageView) findViewById(R.id.button_home_profile);
+        buttonProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Home.this, Profile.class);
+                startActivity(i);
+            }
+        });
+
+        ImageView buttonMessage = (ImageView) findViewById(R.id.button_home_message);
+        buttonMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Home.this, Inbox.class);
+                startActivity(i);
             }
         });
 

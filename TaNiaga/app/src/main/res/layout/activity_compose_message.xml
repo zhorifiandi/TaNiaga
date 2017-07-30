@@ -16,7 +16,7 @@
         android:layout_alignParentStart="true">
 
         <ImageView
-            android:id="@+id/button_backtologin"
+            android:id="@+id/button_compose_back"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -75,7 +75,7 @@
         android:gravity="start"
         android:lines="10"/>
     <Button
-        android:id="@+id/button_compose"
+        android:id="@+id/button_compose_send"
         android:layout_below="@id/edit_compose"
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"

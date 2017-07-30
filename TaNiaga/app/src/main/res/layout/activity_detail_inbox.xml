@@ -16,7 +16,7 @@
         android:layout_alignParentStart="true">
 
         <ImageView
-            android:id="@+id/button_backtologin"
+            android:id="@+id/button_back_detail"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -48,11 +48,12 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:paddingLeft="2dp">
+
             <TextView
                 android:id="@+id/text_detail_inbox_identity"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="left|center"/>
+                android:gravity="left|center" />
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="5dp"
@@ -61,23 +62,27 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:padding="2dp">
+
             <TextView
-                android:background="@drawable/rounded_text_detail_message"
                 android:id="@+id/text_detail_inbox_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left|top"/>
+                android:background="@drawable/rounded_text_detail_message"
+                android:gravity="left|top"
+                android:lines="10"/>
         </LinearLayout>
+
         <Button
-            android:background="@drawable/rounded_button_send_message"
+            android:id="@+id/button_detail_reply"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/rounded_button_send_message"
             android:text="Balas"
-            android:textStyle="bold"
+            android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="20sp"
-            android:textAllCaps="false"
-            android:layout_margin="5dp"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
 

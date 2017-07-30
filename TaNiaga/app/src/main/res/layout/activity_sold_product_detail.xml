@@ -16,7 +16,7 @@
         android:layout_alignParentStart="true">
 
         <ImageView
-            android:id="@+id/button_backtologin"
+            android:id="@+id/button_back"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -45,16 +45,19 @@
         android:layout_alignParentStart="true">
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/image_detail"
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:layout_gravity="center|left" />
+            android:layout_gravity="center|left"
+            android:layout_marginLeft="20dp"/>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp">
             <TextView
                 android:id="@+id/text_nama_produk"
                 android:layout_width="match_parent"
@@ -67,11 +70,6 @@
                 android:layout_weight="1.5"/>
             <TextView
                 android:id="@+id/text_category_produk"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
-            <TextView
-                android:id="@+id/text_penjual_produk"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
@@ -88,31 +86,29 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
             <TextView
+                android:id="@+id/text_deskripsi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lines="5"/>
 
         </LinearLayout>
-        <LinearLayout
-            android:id="@+id/linear_specify_buy"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/button_delete"
+            android:layout_width="fill_parent"
             android:layout_height="50dp"
-            android:orientation="horizontal">
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:text="Hapus"
-                android:textAllCaps="false"
-                android:textStyle="bold"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/rounded_button_logout"/>
-        </LinearLayout>
+            android:text="Hapus"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/rounded_button_logout"/>
     </LinearLayout>
 </RelativeLayout>
