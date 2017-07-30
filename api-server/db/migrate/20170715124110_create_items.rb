@@ -8,6 +8,8 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.string :variety
       t.string :dimension
       t.string :seller_email
+      t.string :seller_name
+      t.integer :seller_id
 
       t.timestamps
     end

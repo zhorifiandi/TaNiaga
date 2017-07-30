@@ -22,10 +22,11 @@ ActiveRecord::Schema.define(version: 20170730082309) do
   end
 
   create_table "incoming_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "agent_phone_number"
     t.string   "from_number"
     t.string   "list_of_contents"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -41,10 +42,11 @@ ActiveRecord::Schema.define(version: 20170730082309) do
   end
 
   create_table "outcoming_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "agent_phone_number"
     t.string   "to_number"
     t.string   "list_of_contents"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "sellers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

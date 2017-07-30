@@ -28,8 +28,35 @@ class SmsController < ApplicationController
     return message.index(char)
   end
 
+  def query_phone(phone_number)
+
+    tr = Telerivet::API.new(API_KEY)
+    project = tr.init_project_by_id(PROJECT_ID)
+
+    cursor = project.query_phones({
+      'phone_number' => phone_number
+    });
+
+    cursor.limit(1).each { |phone|
+      # Convert Telerivet::Phone to string
+      phone_str = phone.to_s
+      # Dump all the characters before '{'
+      kurawal_index = find_char(phone_str, KURAWAL)
+      phone_str = phone_str[kurawal_index..-1]
+      # Parse string to JSON object
+      phone_obj = JSON.parse(phone_str)
+
+      # Return phone id
+      phone_id = phone_obj['id']
+      return phone_id
+    }
+  end
+
   def save_incoming_message
     if request.post?
+      # Current user/agent
+      agent_phone_number = params['agent_phone_number']
+
       # Initiate Telerivet::API
       tr = Telerivet::API.new(API_KEY)
       project = tr.init_project_by_id(PROJECT_ID)
@@ -40,7 +67,9 @@ class SmsController < ApplicationController
       # Retrieve all messages
       cursor = project.query_messages({
           'direction' => "incoming",
-          'message_type' => "sms"
+          'message_type' => "sms",
+          # Dummy phone number, harus diganti sama current user
+          'phone_id' => query_phone(agent_phone_number)
       })
 
       # Iterate over messages
@@ -65,11 +94,11 @@ class SmsController < ApplicationController
       }
 
       # Delete all messages
-      IncomingMessage.delete_all
+      IncomingMessage.destroy_all(:agent_phone_number => agent_phone_number)
 
       # Insert all scrapped messages to db
       all_message_hash.each do |key, array|
-        new_message_obj = IncomingMessage.new(:from_number => key, :list_of_contents => array)
+        new_message_obj = IncomingMessage.new(:agent_phone_number => agent_phone_number.to_s, :from_number => key.to_s, :list_of_contents => array)
         new_message_obj.save!
       end
 
@@ -79,6 +108,9 @@ class SmsController < ApplicationController
 
   def save_outcoming_message
     if request.post?
+      # Current user/agent
+      agent_phone_number = params['agent_phone_number']
+
       # Initiate Telerivet::API
       tr = Telerivet::API.new(API_KEY)
       project = tr.init_project_by_id(PROJECT_ID)
@@ -89,7 +121,9 @@ class SmsController < ApplicationController
       # Retrieve all messages
       cursor = project.query_messages({
           'direction' => "outgoing",
-          'message_type' => "sms"
+          'message_type' => "sms",
+          # Dummy phone number, harus diganti sama current user
+          'phone_id' => query_phone(agent_phone_number)
       })
 
       # Iterate over messages
@@ -114,11 +148,11 @@ class SmsController < ApplicationController
       }
 
       # Delete all messages
-      OutcomingMessage.delete_all
+      OutcomingMessage.destroy_all(:agent_phone_number => agent_phone_number)
 
       # Insert all scrapped messages to db
       all_message_hash.each do |key, array|
-        new_message_obj = OutcomingMessage.new(:to_number => key, :list_of_contents => array)
+        new_message_obj = OutcomingMessage.new(:agent_phone_number => agent_phone_number.to_s, :to_number => key.to_s, :list_of_contents => array)
         new_message_obj.save!
       end
 
@@ -128,21 +162,28 @@ class SmsController < ApplicationController
 
   def send_message
     if request.post?
-      phone_number = params['phone_number'].to_str
-      content_message = params['content_message'].to_str
+      # All params
+      to_phone_number = params['to_phone_number'].to_s
+      content_message = params['content_message'].to_s
+      from_phone_number = params['from_phone_number'].to_s
 
-      # Uncomment this to send the real message
-      # tr = Telerivet::API.new(API_KEY)
-      # project = tr.init_project_by_id(PROJECT_ID)
+      # Convert sender number to sender ID
+      from_id = query_phone(from_phone_number)
+
+      # Initialize Telerivet::API
+      tr = Telerivet::API.new(API_KEY)
+      project = tr.init_project_by_id(PROJECT_ID)
 
       # Send a SMS message
-      # project.send_message({
-      #     to_number: phone_number,
-      #     content: content_message
-      # })
+      project.send_message({
+          message_type: 'sms',
+          route_id: from_id,
+          to_number: to_phone_number,
+          content: content_message
+      })
 
-      ret_hash = {"successful" => 'true', 'phone_number' => phone_number, 'content_message' => content_message}
-
+      # JSON response
+      ret_hash = {"successful" => 'true', 'message_type' => 'sms', 'route_id' => from_id, 'to_number' => to_phone_number, 'content' => content_message}
       render json: ret_hash
     end
   end

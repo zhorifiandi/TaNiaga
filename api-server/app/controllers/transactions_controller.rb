@@ -28,9 +28,9 @@ class TransactionsController < ApplicationController
                                     amount_price: params[:amount_price],
                                     description: params[:description],
                                     transaction_code: random_string,
-                                    ispaid: false,
-                                    issent: false,
-                                    isreceived: false,
+                                    ispaid: true,
+                                    issent: true,
+                                    isreceived: true,
                                     date_expired: 10.days.from_now )
 
     if @transaction.save
