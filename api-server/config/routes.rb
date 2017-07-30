@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :sms do
     collection do
-      post 'send'
+      post 'send_message'
       post 'save_incoming_message'
       post 'save_outcoming_message'
     end

@@ -28,6 +28,29 @@ class SmsController < ApplicationController
     return message.index(char)
   end
 
+  def query_phone(phone_number)
+
+    tr = Telerivet::API.new(API_KEY)
+    project = tr.init_project_by_id(PROJECT_ID)
+
+    cursor = project.query_phones({
+      'phone_number' => phone_number
+    });
+
+    cursor.limit(1).each { |phone|
+      # Convert Telerivet::Phone to string
+      phone_str = phone.to_s
+      # Dump all the characters before '{'
+      kurawal_index = find_char(phone_str, KURAWAL)
+      phone_str = phone_str[kurawal_index..-1]
+      # Parse string to JSON object
+      phone_obj = JSON.parse(phone_str)
+
+      # Return phone id
+      return phone_obj['id']
+    }
+  end
+
   def save_incoming_message
     if request.post?
       # Initiate Telerivet::API
@@ -40,7 +63,9 @@ class SmsController < ApplicationController
       # Retrieve all messages
       cursor = project.query_messages({
           'direction' => "incoming",
-          'message_type' => "sms"
+          'message_type' => "sms",
+          # Dummy phone number, harus diganti sama current user
+          'phone' => query_phone('6281218641998')
       })
 
       # Iterate over messages
@@ -89,7 +114,9 @@ class SmsController < ApplicationController
       # Retrieve all messages
       cursor = project.query_messages({
           'direction' => "outgoing",
-          'message_type' => "sms"
+          'message_type' => "sms",
+          # Dummy phone number, harus diganti sama current user
+          'phone' => query_phone('6281218641998')
       })
 
       # Iterate over messages
