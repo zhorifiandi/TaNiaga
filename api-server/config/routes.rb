@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   resources :transactions
   resources :items
 
-  resources :users
+  resources :users do
+    collection do
+      post 'show_by_email'
+    end
+  end
 
   # post '/sms/send_message', :to => "sms#send_message"
   # post '/sms/savereceive_message', :to => "sms#receive_message"
