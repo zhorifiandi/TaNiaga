@@ -46,11 +46,8 @@ class SmsController < ApplicationController
       # Parse string to JSON object
       phone_obj = JSON.parse(phone_str)
 
-      phone_id = phone_obj['id']
-      puts('ANJRIT')
-      puts(phone_id)
-
       # Return phone id
+      phone_id = phone_obj['id']
       return phone_id
     }
   end
@@ -59,8 +56,6 @@ class SmsController < ApplicationController
     if request.post?
       # Current user/agent
       agent_phone_number = params['agent_phone_number']
-      puts('BANGSAT')
-      puts(agent_phone_number)
 
       # Initiate Telerivet::API
       tr = Telerivet::API.new(API_KEY)
@@ -86,8 +81,6 @@ class SmsController < ApplicationController
           message_str = message_str[kurawal_index..-1]
           # Parse string to JSON object
           message_obj = JSON.parse(message_str)
-
-          puts(message_obj)
 
           # Get sender and content
           sender = message_obj['from_number']
@@ -117,8 +110,6 @@ class SmsController < ApplicationController
     if request.post?
       # Current user/agent
       agent_phone_number = params['agent_phone_number']
-      puts('BANGSAT')
-      puts(agent_phone_number)
 
       # Initiate Telerivet::API
       tr = Telerivet::API.new(API_KEY)
@@ -145,8 +136,6 @@ class SmsController < ApplicationController
           # Parse string to JSON object
           message_obj = JSON.parse(message_str)
 
-          puts(message_obj)
-
           # Get sender and content
           sender = message_obj['to_number']
           content = message_obj['content']
@@ -171,23 +160,30 @@ class SmsController < ApplicationController
     end
   end
 
-  # Ini ngasitau yg ngirim siapa gimana?
   def send_message
     if request.post?
-      phone_number = params['phone_number'].to_str
-      content_message = params['content_message'].to_str
+      # All params
+      to_phone_number = params['to_phone_number'].to_s
+      content_message = params['content_message'].to_s
+      from_phone_number = params['from_phone_number'].to_s
 
+      # Convert sender number to sender ID
+      from_id = query_phone(from_phone_number)
+
+      # Initialize Telerivet::API
       tr = Telerivet::API.new(API_KEY)
       project = tr.init_project_by_id(PROJECT_ID)
 
       # Send a SMS message
       project.send_message({
-          to_number: phone_number,
+          message_type: 'sms',
+          route_id: from_id,
+          to_number: to_phone_number,
           content: content_message
       })
 
-      ret_hash = {"successful" => 'true', 'phone_number' => phone_number, 'content_message' => content_message}
-
+      # JSON response
+      ret_hash = {"successful" => 'true', 'message_type' => 'sms', 'route_id' => from_id, 'to_number' => to_phone_number, 'content' => content_message}
       render json: ret_hash
     end
   end

@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   def show_by_email
-    user = User.find_by(email: params[:email])
+    user = User.find_by(email: params["email"])
     render json: user
   end
 
