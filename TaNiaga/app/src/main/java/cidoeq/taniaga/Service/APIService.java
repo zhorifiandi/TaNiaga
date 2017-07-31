@@ -21,7 +21,8 @@ import retrofit2.http.Query;
  */
 
 public interface APIService {
-    public static final String API_URL = "http://192.168.43.239:3000/";
+//    public static final String API_URL = "http://192.168.43.239:3000/";
+    public static final String API_URL = "https://api-server.au-syd.mybluemix.net/";
 
     @POST("authenticate")
     Call<User> getToken(@Query("email") String email, @Query("password") String password);
