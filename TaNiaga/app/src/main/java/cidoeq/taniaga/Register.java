@@ -65,6 +65,7 @@ public class Register extends AppCompatActivity {
         editTextPhone = (EditText) findViewById(R.id.edit_no_hp);
         editTextAddress = (EditText) findViewById(R.id.edit_alamat);
         editTextPassword = (EditText) findViewById(R.id.edit_password);
+        editTextEmail = (EditText) findViewById(R.id.edit_alamat_register);
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,8 +84,8 @@ public class Register extends AppCompatActivity {
         final String password  = editTextPassword.getText().toString().trim();
         final String name  = editTextName.getText().toString().trim();
         final String phone  = editTextPhone.getText().toString().trim();
+        final String address = editTextAddress.getText().toString().trim();
 //        final String address  = editTextAddress.getText().toString().trim();
-        final String address  = "dummy";
 
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
@@ -122,7 +123,7 @@ public class Register extends AppCompatActivity {
                     System.out.println("HASILNYA:");
                     System.out.println(user.getEmail());
                     finish();
-                    startActivity(new Intent(getApplicationContext(), Login.class));
+                    startActivity(new Intent(getApplicationContext(), Home.class));
                 }
                 else {
 
